@@ -10,7 +10,7 @@ def index():
 	return render_template("index.html")
 @app.route("/about")
 def about():
-	return "Flask demo app"
+	return render_template("about.html")
 
 @app.route("/hello/<string:name>/<int:guess>")
 def hello(name, guess):
@@ -29,7 +29,6 @@ def submit():
 def submit_post():
 	name = request.form.get("name")
 	link = request.form.get("link")
-	return "Uspesna prijava " + name + " link: " + link + " je postavljen."
+	return render_template("submited.html", name=name, link=link)
 
 
-app.run()
